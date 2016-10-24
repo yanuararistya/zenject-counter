@@ -7,13 +7,13 @@ namespace Counter {
 
 		Counter.Model _target;
 		Settings _settings;
-		Counter.OnReset _signal;
+		OnRoundFinished _signal;
 
 		public RandomizeTargetValue (
 			[Inject(Id = Counter.Model.Type.Target)]
 			Counter.Model target,
 			Settings settings,
-			Counter.OnReset signal) {
+			OnRoundFinished signal) {
 			_target = target;
 			_settings = settings;
 			_signal = signal;

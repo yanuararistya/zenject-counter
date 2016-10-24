@@ -7,22 +7,35 @@ namespace Counter {
 	public class ResetValue : IInitializable, IDisposable {
 
 		Counter.Model _model;
-		Counter.OnReset _signal;
+		Counter.OnModelEqualsTarget _onModelEqualsTarget;
+		OnRoundFinished _onRoundFinished;
+		Counter.OnIdle _onIdle;
 
-		public ResetValue (Counter.Model model, Counter.OnReset signal) {
+		public ResetValue (
+			Counter.Model model, 
+			Counter.OnModelEqualsTarget onModelEqualsTarget, 
+			OnRoundFinished onRoundFinished,
+			Counter.OnIdle onIdle) 
+		{
 			_model = model;
-			_signal = signal;
+			_onModelEqualsTarget = onModelEqualsTarget;
+			_onRoundFinished = onRoundFinished;
+			_onIdle = onIdle;
 		}
 
 		public void Initialize () {
-			_signal.Event += Reset;
+			_onModelEqualsTarget.Event += Reset;
+			_onRoundFinished.Event += Reset;
+			_onIdle.Event += Reset;
 		}
 
 		public void Dispose () {
-			_signal.Event -= Reset;
+			_onModelEqualsTarget.Event -= Reset;
+			_onRoundFinished.Event -= Reset;
+			_onIdle.Event -= Reset;
 		}
 
-		void Reset () {
+		public void Reset () {
 			_model.counter.Value = 0;
 		}
 	}

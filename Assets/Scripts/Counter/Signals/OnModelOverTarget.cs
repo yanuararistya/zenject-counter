@@ -3,7 +3,7 @@ using System.Collections;
 using Zenject;
 
 namespace Counter {
-	public class OnReset : Signal {
+	public class OnModelOverTarget : Signal {
 		public class Trigger : TriggerBase {}
 	}
 }

@@ -124,7 +124,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -150}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432747852
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _components:
   - {fileID: 432747855}
-  _identifier: target
+  _identifier: 
   _context: {fileID: 1090564871}
   _bindType: 0
 --- !u!114 &432747855
@@ -376,7 +376,12 @@ MonoBehaviour:
     resetEverySeconds:
       second: 0.5
     randomTarget:
-      maximum: 20
+      maximum: 10
+    screenShake:
+      minMagnitude: 0.5
+      maxMagnitude: 1
+      duration: 0.4
+      vibrato: 40
 --- !u!1 &1263260172
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,8 +507,8 @@ Canvas:
   m_GameObject: {fileID: 1487596014}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 2
+  m_Camera: {fileID: 471968375}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -521,7 +526,7 @@ RectTransform:
   m_GameObject: {fileID: 1487596014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.007, y: 0.007, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1684760476}
@@ -531,8 +536,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 1080, y: 1723.9572}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1684760475
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +573,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 721.9, y: 170.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684760477
 MonoBehaviour:
@@ -599,8 +604,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: World
 --- !u!222 &1684760478
@@ -634,6 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _components:
   - {fileID: 1684760479}
+  - {fileID: 1684760477}
   _identifier: 
   _context: {fileID: 1090564871}
   _bindType: 0
